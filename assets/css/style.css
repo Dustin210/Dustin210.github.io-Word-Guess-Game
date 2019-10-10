@@ -1,0 +1,18 @@
+.display {
+    text-align: center;
+}
+
+body {
+    background: url("..//images/Vintage-1976-Hangman-Board-Game-4623-Vincent-Price.jpg")
+}
+
+.guess-box {
+    background: black;
+    color: white;
+    padding: 30px;
+    margin: 0 0 40px 0;
+    width: 100%;
+    max-width: 650px;
+    float: left;
+    border: 1px solid #ddd;
+}
