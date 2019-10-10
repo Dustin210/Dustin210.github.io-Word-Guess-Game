@@ -5,6 +5,7 @@ var lettersInName =[];
 var nameLines =0;
 var linesAndCorrect = [];
 var wrongNames = [];
+var wrongLetters = [];
 
 // counts
 var winCount = 0;
@@ -28,9 +29,9 @@ function startGame () {
     
     document.getElementById("nameToGuess").innerHTML = linesAndCorrect;
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
-    document.getElementById("lossCount").innerHTML = lossCount;
     document.getElementById("winCount").innerHTML = winCount;
-    
+    document.getElementById("wrongGuesses").innerHTML = wrongLetters;
+
 
     console.log(selectedName);
     console.log(lettersInName);
@@ -68,6 +69,29 @@ function checkLetters(letter) {
 
 function roundComplete() {
     console.log("The Win count:" + winCount + "| Loser count:" + lossCount +"| Guesses left:" + guessesLeft);
+
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("nameToGuess").innerHTML = linesAndCorrect.toString();
+    document.getElementById("wrongGuesses").innerHTML = wrongLetters
+
+    if (lettersInName.toString() == linesAndCorrect.toString()) {
+        winCount++;
+        alert("You Won!");
+    
+        document.getElementById("winCount").innerHTML = winCount;
+    
+        startGame();
+    }
+
+    else if (guessesLeft == 0) {
+        lossCount++;
+        alert("LOSER!");
+
+        document.getElementById("lossCount").innerHTML = lossCount;
+
+        startGame();
+    }
+   
 }
 
 
@@ -85,7 +109,3 @@ document.onkeyup = function(event) {
    
     console.log(letterGuessed);
 }
-
-
-
-//Functions
