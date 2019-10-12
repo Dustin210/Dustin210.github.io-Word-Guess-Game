@@ -1,5 +1,7 @@
 //variables
 var nameOptions = ["dustin", "beth", "jon","brynn","alyssa","henry"];
+
+
 var selectedName = "";
 var lettersInName =[];
 var nameLines =0;
@@ -24,7 +26,7 @@ function startGame () {
 
     // loop, list the blanks and correct guesses, link to HTML
     for (var i=0; i<nameLines; i++){
-        linesAndCorrect.push("_");
+        linesAndCorrect.push();
     }
     
     document.getElementById("nameToGuess").innerHTML = linesAndCorrect;
@@ -53,7 +55,9 @@ function checkLetters(letter) {
     if(isLetterInName) {
         for (var i=0; i<nameLines; i++) {
             if(selectedName[i] == letter) {
-                 linesAndCorrect = letter;
+                 linesAndCorrect.push(letter);
+                // animals.push('cows');
+                console.log(letter);
             }
         }
     }
@@ -74,7 +78,11 @@ function roundComplete() {
     document.getElementById("nameToGuess").innerHTML = linesAndCorrect.toString();
     document.getElementById("wrongGuesses").innerHTML = wrongLetters
 
+ console.log("lettersInName.toString()",lettersInName.toString())
+  console.log("linesAndCorrect.toString()",linesAndCorrect.toString())
+
     if (lettersInName.toString() == linesAndCorrect.toString()) {
+        console.log("blah")
         winCount++;
         alert("You Won!");
     
